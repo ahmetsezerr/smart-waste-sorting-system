@@ -102,7 +102,17 @@ If the Arduino is connected to a different port, edit `SERIAL_PORT` in `logic/ca
 
 ## Screenshots
 
-Screenshots of the dashboard, live prediction results, and analysis page can be added here to demonstrate the application.
+### Main Menu
+![Main Menu](screenshots/Dashboard.png)
+
+### Real-Time Waste Detection
+![Real-Time Detection](screenshots/detection.png)
+
+### Analytics Dashboard
+![Analytics](screenshots/Analytics.png)
+
+### Waste Sorting Guide
+![Waste Sorting Guide](screenshots/guide.png)
 
 ## Scope and Notes
 
