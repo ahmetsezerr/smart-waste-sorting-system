@@ -106,7 +106,7 @@ If the Arduino is connected to a different port, edit `SERIAL_PORT` in `logic/ca
 ![Main Menu](screenshots/Dashboard.png)
 
 ### Real-Time Waste Detection
-![Real-Time Detection](screenshots/detection.png)
+![Real-Time Detection](screenshots/Detection.png)
 
 ### Analytics Dashboard
 ![Analytics](screenshots/Analytics.png)
