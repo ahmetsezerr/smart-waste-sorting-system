@@ -120,3 +120,13 @@ If the Arduino is connected to a different port, edit `SERIAL_PORT` in `logic/ca
 - The main desktop interface is implemented with **PySide6**. HTML files in the repository are supplementary design resources, not the runtime frontend.
 - Detection counters and visualizations describe the application's current session; the repository does not include a persistent database for these statistics.
 - This is an academic graduation project and a demonstration of AI-assisted waste classification and sorting, rather than a production-ready industrial system.
+
+## Project Team
+
+This project was jointly developed by two Computer Engineering students at Karabük University as their graduation project.
+
+**Developers**
+- [Ahmet Sezer](https://github.com/ahmetsezerr)
+- [Esra Tavşan](https://github.com/esratvsn)
+
+**Academic Supervisor:** Assoc. Prof. Dr. Eftal Şehirli
