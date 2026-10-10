@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SmartRecycle AI v1.0</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Fira+Code:wght@400;500;600;700&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed": "#ffdad2",
+                        "surface-container-low": "#151c25",
+                        "surface-container-highest": "#2e353f",
+                        "tertiary": "#fffbff",
+                        "on-tertiary-fixed": "#3c0700",
+                        "surface-bright": "#333a43",
+                        "on-surface-variant": "#b9cbbd",
+                        "on-primary-fixed-variant": "#005233",
+                        "on-secondary-container": "#00616d",
+                        "surface": "#0d141c",
+                        "on-primary-fixed": "#002112",
+                        "secondary-container": "#00e3fd",
+                        "surface-tint": "#00e296",
+                        "surface-container": "#192029",
+                        "on-primary": "#003822",
+                        "inverse-primary": "#006c46",
+                        "on-secondary": "#00363d",
+                        "secondary-fixed": "#9cf0ff",
+                        "secondary": "#bdf4ff",
+                        "on-secondary-fixed": "#001f24",
+                        "error": "#ffb4ab",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary": "#621100",
+                        "on-background": "#dce3ef",
+                        "surface-variant": "#2e353f",
+                        "on-secondary-fixed-variant": "#004f58",
+                        "on-error": "#690005",
+                        "outline": "#849589",
+                        "primary-fixed": "#4dffb1",
+                        "inverse-on-surface": "#2a313a",
+                        "secondary-fixed-dim": "#00daf3",
+                        "on-tertiary-fixed-variant": "#8a1d00",
+                        "error-container": "#93000a",
+                        "surface-container-high": "#242a34",
+                        "outline-variant": "#3a4a40",
+                        "tertiary-container": "#ffd7ce",
+                        "primary-fixed-dim": "#00e296",
+                        "tertiary-fixed-dim": "#ffb4a2",
+                        "inverse-surface": "#dce3ef",
+                        "surface-container-lowest": "#080f17",
+                        "on-tertiary-container": "#bc2b00",
+                        "on-primary-container": "#007149",
+                        "surface-dim": "#0d141c",
+                        "background": "#0d141c",
+                        "primary": "#f6fff6",
+                        "on-surface": "#dce3ef",
+                        "primary-container": "#00ffaa",
+                        "industrial-bg": "#0d141c",
+                        "industrial-panel": "#151c25",
+                        "industrial-border": "#2e353f"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Space Grotesk", "sans-serif"],
+                        "mono": ["'Fira Code'", "monospace"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body overflow-hidden h-screen flex flex-col relative">
+<!-- Background Grid & Gradient -->
+<div class="fixed inset-0 z-[-1] bg-[linear-gradient(to_right,#00ffaa08_1px,transparent_1px),linear-gradient(to_bottom,#00ffaa08_1px,transparent_1px)] bg-[size:32px_32px]"></div>
+<div class="fixed inset-0 z-[-1] bg-[radial-gradient(ellipse_80%_80%_at_50%_50%,rgba(0,255,170,0.05),transparent)]"></div>
+<!-- Top Navigation Menu -->
+<nav class="bg-surface-container-low/90 backdrop-blur-sm h-14 flex items-center justify-between px-6 shrink-0 z-[60] border-b border-primary-container/20 shadow-[0_4px_20px_rgba(0,255,170,0.05)]">
+<div class="flex items-center gap-3">
+<div class="w-2 h-6 bg-primary-container rounded-sm shadow-[0_0_8px_rgba(0,255,170,0.6)]"></div>
+<span class="font-headline font-semibold text-primary tracking-widest text-sm uppercase">SmartRecycle AI Dashboard</span>
+</div>
+<div class="flex items-center gap-3">
+<a class="px-4 py-1.5 rounded bg-primary-container text-surface-container-lowest text-[11px] font-mono font-bold tracking-widest transition-all shadow-[0_0_10px_rgba(0,255,170,0.3)] hover:shadow-[0_0_15px_rgba(0,255,170,0.5)]" href="#">DASHBOARD</a>
+<a class="px-4 py-1.5 rounded text-[11px] font-mono font-medium tracking-widest text-on-surface-variant hover:text-primary-container hover:bg-surface-container-highest/50 transition-all" href="#">ANALIZLER</a>
+<a class="px-4 py-1.5 rounded text-[11px] font-mono font-medium tracking-widest text-on-surface-variant hover:text-primary-container hover:bg-surface-container-highest/50 transition-all" href="#">REHBER</a>
+<a class="px-4 py-1.5 rounded text-[11px] font-mono font-medium tracking-widest text-on-surface-variant hover:text-primary-container hover:bg-surface-container-highest/50 transition-all" href="#">AYARLAR</a>
+</div>
+</nav>
+<!-- Title Bar -->
+<header class="bg-surface-container-lowest/80 backdrop-blur-md h-10 flex justify-between items-center px-4 shrink-0 z-50 border-b border-surface-container-highest">
+<div class="flex items-center gap-3">
+<div class="text-on-surface-variant font-headline font-semibold tracking-wide uppercase text-xs">SmartRecycle AI v1.0</div>
+<div class="bg-surface-container-high text-primary-container text-[10px] px-2 py-0.5 rounded font-mono border border-primary-container/30 shadow-[inset_0_0_5px_rgba(0,255,170,0.1)]">SYSTEM_READY</div>
+</div>
+<div class="flex items-center">
+<button class="w-10 h-10 flex items-center justify-center hover:bg-surface-container-highest transition-colors text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined text-xs">minimize</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center hover:bg-surface-container-highest transition-colors text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined text-xs">check_box_outline_blank</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center hover:bg-error hover:text-on-error transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+</div>
+</header>
+<!-- Main Content Stage -->
+<main class="flex-1 flex gap-4 p-4 overflow-hidden relative z-10">
+<!-- Left Panel -->
+<aside class="w-80 flex flex-col gap-4">
+<!-- Probability Analysis Card -->
+<section class="bg-surface-container-low/80 backdrop-blur-md p-5 rounded-lg border border-primary-container/10 shadow-[0_0_20px_rgba(0,0,0,0.5)] flex flex-col gap-4 flex-1">
+<div class="flex items-center gap-2 mb-1 border-b border-surface-container-highest pb-2">
+<span class="material-symbols-outlined text-sm text-primary-container drop-shadow-[0_0_5px_rgba(0,255,170,0.5)]">assessment</span>
+<h2 class="font-mono text-xs font-bold tracking-widest text-primary uppercase">EN İYİ TAHMİNLER</h2>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Primary Detection -->
+<div class="bg-surface-container-high/50 border border-primary-container/30 rounded-lg p-4 flex justify-between items-center shadow-[inset_0_0_10px_rgba(0,255,170,0.05)] relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary-container shadow-[0_0_10px_rgba(0,255,170,0.8)]"></div>
+<div class="flex items-center gap-3 z-10">
+<div class="w-8 h-8 rounded bg-surface-container-highest/80 flex items-center justify-center border border-primary-container/50 shadow-[0_0_8px_rgba(0,255,170,0.2)]">
+<span class="material-symbols-outlined text-primary-container text-lg font-bold">check</span>
+</div>
+<span class="text-primary font-headline font-semibold text-xl tracking-wide">Plastik</span>
+</div>
+<div class="text-right z-10">
+<span class="text-primary-container font-mono font-bold text-2xl leading-none block drop-shadow-[0_0_5px_rgba(0,255,170,0.5)]">92.0%</span>
+</div>
+</div>
+<!-- Secondary Detections -->
+<div class="flex flex-col gap-4 mt-2">
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 rounded flex items-center justify-center bg-surface-container border border-surface-container-highest text-on-surface-variant font-mono text-xs font-medium shrink-0">2</div>
+<span class="font-headline font-medium text-sm text-on-surface w-16 shrink-0">Metal</span>
+<div class="flex-1 h-1.5 bg-surface-container-highest rounded-full overflow-hidden flex items-center shadow-[inset_0_1px_3px_rgba(0,0,0,0.5)]">
+<div class="h-full bg-primary-container shadow-[0_0_5px_rgba(0,255,170,0.5)]" style="width: 71%"></div>
+</div>
+<span class="font-mono text-xs text-on-surface-variant w-14 text-right shrink-0">71.00%</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 rounded flex items-center justify-center bg-surface-container border border-surface-container-highest text-on-surface-variant font-mono text-xs font-medium shrink-0">3</div>
+<span class="font-headline font-medium text-sm text-on-surface w-16 shrink-0">Kağıt</span>
+<div class="flex-1 h-1.5 bg-surface-container-highest rounded-full overflow-hidden flex items-center shadow-[inset_0_1px_3px_rgba(0,0,0,0.5)]">
+<div class="h-full bg-primary-container shadow-[0_0_5px_rgba(0,255,170,0.5)]" style="width: 11%"></div>
+</div>
+<span class="font-mono text-xs text-on-surface-variant w-14 text-right shrink-0">11.23%</span>
+</div>
+</div>
+</div>
+</section>
+</aside>
+<!-- Center Panel (Camera Viewfinder) -->
+<div class="flex-1 flex flex-col gap-4">
+<section class="relative flex-1 rounded-lg overflow-hidden bg-surface-container-lowest group border border-primary-container/20 shadow-[0_0_30px_rgba(0,255,170,0.05)]">
+<img alt="live camera feed of recycling materials" class="w-full h-full object-cover opacity-80 mix-blend-luminosity contrast-125 group-hover:mix-blend-normal transition-all duration-500" data-alt="industrial camera view of a plastic bottle on a conveyor belt with digital overlay and neon blue color grade" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC82Pq1pQQ98F5ksdpJ-61IqC7WuTsOmPsMEU3xDX8LvnIOnJatFppKEMA09_k902u1srsIukocjOTsYdM_0a1H85nFiDdXmPt-9h_FPMvd0E0O-DaUiZN4qbONmDuPosxnFJWOx3XLqbpmdGE_nFOorqd1qrzJR9qeoGonyBT6iVRQojGhLEz4ImVtdShLFd1k5wuOZa48wk7CgKzOormb5R8WaPxolHAtqqWCSzIOVR_sdHhQD-nxTuPnBFNQQJf2Sxk5yTwEYorK"/>
+<!-- HUD Overlays -->
+<div class="absolute inset-0 p-8 flex flex-col justify-between pointer-events-none">
+<div class="flex justify-between">
+<div class="w-12 h-12 border-t-2 border-l-2 border-primary-container shadow-[-2px_-2px_5px_rgba(0,255,170,0.2)]"></div>
+<div class="w-12 h-12 border-t-2 border-r-2 border-primary-container shadow-[2px_-2px_5px_rgba(0,255,170,0.2)]"></div>
+</div>
+<div class="flex-1 flex items-center justify-center">
+<div class="border border-dashed border-primary-container/70 w-72 h-72 rounded-full flex items-center justify-center relative shadow-[0_0_30px_rgba(0,255,170,0.1)]">
+<div class="absolute inset-0 rounded-full border border-primary-container/20 animate-ping"></div>
+<div class="text-primary-container font-mono text-xs font-bold tracking-[0.2em] bg-surface-container-lowest/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-primary-container/30 shadow-[0_0_10px_rgba(0,255,170,0.2)]">SCANNING...</div>
+</div>
+</div>
+<div class="flex justify-between">
+<div class="w-12 h-12 border-b-2 border-l-2 border-primary-container shadow-[-2px_2px_5px_rgba(0,255,170,0.2)]"></div>
+<div class="w-12 h-12 border-b-2 border-r-2 border-primary-container shadow-[2px_2px_5px_rgba(0,255,170,0.2)]"></div>
+</div>
+</div>
+<!-- AI Tag Overlay -->
+<div class="absolute top-6 right-6 bg-surface-container-lowest/80 backdrop-blur-md px-3 py-1.5 rounded border border-primary-container/30 flex items-center gap-2 shadow-[0_0_10px_rgba(0,255,170,0.1)]">
+<span class="w-2 h-2 rounded-full bg-primary-container shadow-[0_0_5px_rgba(0,255,170,0.8)] animate-pulse"></span>
+<span class="font-mono text-[10px] font-bold text-primary-container uppercase tracking-widest">AI_TRACKING_MODE: ON</span>
+</div>
+</section>
+</div>
+<!-- Right Panel -->
+<aside class="w-80 flex flex-col gap-4">
+<!-- Command Center Card -->
+<section class="bg-surface-container-low/80 backdrop-blur-md p-5 rounded-lg border border-primary-container/10 shadow-[0_0_20px_rgba(0,0,0,0.5)] flex flex-col gap-4 shrink-0">
+<div class="flex items-center gap-2 mb-1 border-b border-surface-container-highest pb-2">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">terminal</span>
+<h2 class="font-mono text-xs font-bold tracking-widest text-primary">COMMAND CENTER</h2>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="bg-primary-container/10 border border-primary-container text-primary-container hover:bg-primary-container hover:text-surface-container-lowest py-2.5 rounded font-headline font-bold text-xs transition-all shadow-[0_0_10px_rgba(0,255,170,0.1)] hover:shadow-[0_0_15px_rgba(0,255,170,0.4)] tracking-wide">SİSTEMİ BAŞLAT</button>
+<button class="bg-surface-container hover:bg-surface-container-highest border border-surface-container-highest text-on-surface py-2.5 rounded font-headline font-bold text-xs transition-colors tracking-wide">DURDUR</button>
+</div>
+</section>
+<!-- Sistem Durumu -->
+<section class="bg-surface-container-low/80 backdrop-blur-md p-5 rounded-lg border border-primary-container/10 shadow-[0_0_20px_rgba(0,0,0,0.5)] shrink-0">
+<div class="flex items-center gap-2 mb-3 border-b border-surface-container-highest pb-2">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">analytics</span>
+<h2 class="font-mono text-xs font-bold tracking-widest text-primary">SİSTEM_DURUMU</h2>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-sm text-primary-container drop-shadow-[0_0_3px_rgba(0,255,170,0.5)]">check_circle</span>
+<span class="font-mono text-[11px] font-medium text-on-surface uppercase tracking-wide">Arduino bağlantısı hazır</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-sm text-primary-container drop-shadow-[0_0_3px_rgba(0,255,170,0.5)]">check_circle</span>
+<span class="font-mono text-[11px] font-medium text-on-surface uppercase tracking-wide">Kamera akışı aktif</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-sm text-primary-container drop-shadow-[0_0_3px_rgba(0,255,170,0.5)]">check_circle</span>
+<span class="font-mono text-[11px] font-medium text-on-surface uppercase tracking-wide">AI Model yüklendi</span>
+</div>
+</div>
+</section>
+<!-- Categories Card -->
+<section class="bg-surface-container-low/80 backdrop-blur-md p-5 rounded-lg border border-primary-container/10 shadow-[0_0_20px_rgba(0,0,0,0.5)] flex-1 flex flex-col gap-4">
+<div class="flex items-center gap-2 mb-1 border-b border-surface-container-highest pb-2">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">inventory_2</span>
+<h2 class="font-mono text-xs font-bold tracking-widest text-primary">CATEGORIES</h2>
+</div>
+<div class="flex flex-col gap-2">
+<button class="relative flex items-center gap-4 p-3 rounded bg-surface-container-high/50 border border-primary-container/50 shadow-[inset_0_0_10px_rgba(0,255,170,0.05),0_0_10px_rgba(0,255,170,0.1)] overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary-container shadow-[0_0_10px_rgba(0,255,170,0.8)]"></div>
+<div class="relative z-10 flex items-center gap-4 w-full">
+<svg class="w-5 h-5 text-primary-container drop-shadow-[0_0_5px_rgba(0,255,170,0.5)]" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M12 2L3 7v10l9 5 9-5V7l-9-5z" stroke-dasharray="2 2"></path>
+<path d="M12 22V12m0 0l-9-5m9 5l9-5"></path>
+<circle cx="12" cy="12" fill="currentColor" fill-opacity="1" r="3"></circle>
+</svg>
+<span class="font-headline font-bold text-sm text-primary uppercase tracking-widest">Plastik</span>
+<span class="ml-auto bg-primary-container text-surface-container-lowest text-[9px] font-mono font-bold px-1.5 py-0.5 rounded shadow-[0_0_5px_rgba(0,255,170,0.5)]">ACTV</span>
+</div>
+</button>
+<button class="flex items-center gap-4 p-3 rounded bg-surface-container border border-surface-container-highest hover:border-primary-container/30 hover:bg-surface-container-high transition-all group">
+<svg class="w-5 h-5 text-on-surface-variant group-hover:text-primary-container transition-colors" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<rect height="18" rx="2" width="16" x="4" y="3"></rect>
+<path d="M8 7h8M8 11h8M8 15h5" stroke-linecap="round"></path>
+<path d="M2 12h4M18 12h4" opacity="0.5" stroke-width="0.5"></path>
+</svg>
+<span class="font-headline font-medium text-sm text-on-surface group-hover:text-primary transition-all uppercase tracking-wider">Kağıt</span>
+</button>
+<button class="flex items-center gap-4 p-3 rounded bg-surface-container border border-surface-container-highest hover:border-primary-container/30 hover:bg-surface-container-high transition-all group">
+<svg class="w-5 h-5 text-on-surface-variant group-hover:text-primary-container transition-colors" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M7 2l2 20h6l2-20H7z" stroke-linejoin="round"></path>
+<path d="M9 10h6" stroke-width="0.5"></path>
+<circle cx="12" cy="6" fill="currentColor" r="1"></circle>
+</svg>
+<span class="font-headline font-medium text-sm text-on-surface group-hover:text-primary transition-all uppercase tracking-wider">Cam</span>
+</button>
+<button class="flex items-center gap-4 p-3 rounded bg-surface-container border border-surface-container-highest hover:border-primary-container/30 hover:bg-surface-container-high transition-all group">
+<svg class="w-5 h-5 text-on-surface-variant group-hover:text-primary-container transition-colors" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M4 10h16M4 14h16M10 4v16M14 4v16" stroke-dasharray="1 1"></path>
+<rect height="12" rx="1" width="12" x="6" y="6"></rect>
+</svg>
+<span class="font-headline font-medium text-sm text-on-surface group-hover:text-primary transition-all uppercase tracking-wider">Metal</span>
+</button>
+<button class="flex items-center gap-4 p-3 rounded bg-surface-container border border-surface-container-highest hover:border-primary-container/30 hover:bg-surface-container-high transition-all group">
+<svg class="w-5 h-5 text-on-surface-variant group-hover:text-primary-container transition-colors" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="9" stroke-dasharray="4 2"></circle>
+<path d="M12 8v8M8 12h8"></path>
+</svg>
+<span class="font-headline font-medium text-sm text-on-surface group-hover:text-primary transition-all uppercase tracking-wider">Diğer</span>
+</button>
+</div>
+</section>
+</aside>
+</main>
+<!-- Status Bar -->
+<footer class="bg-surface-container-low/90 backdrop-blur-sm h-10 flex justify-between items-center px-6 shrink-0 border-t border-primary-container/20 relative z-50">
+<div class="flex gap-6">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-container shadow-[0_0_5px_rgba(0,255,170,0.8)]"></span>
+<span class="font-mono text-[10px] font-bold uppercase text-on-surface-variant">Sistem Durumu: <span class="text-primary-container">Online</span></span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">memory</span>
+<span class="font-mono text-[10px] font-bold uppercase text-on-surface-variant">Arduino: <span class="text-primary">Bağlı</span></span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">speed</span>
+<span class="font-mono text-[10px] font-bold uppercase text-on-surface-variant">CPU: <span class="text-primary">12%</span></span>
+</div>
+</div>
+<div class="font-mono text-[10px] font-bold text-primary-container/70 uppercase tracking-widest">
+        SmartRecycle AI v4.2.0 | SYSTEM_READY
+    </div>
+</footer>
+</body></html>

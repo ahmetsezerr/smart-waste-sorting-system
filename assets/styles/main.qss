@@ -1,0 +1,299 @@
+/* Global Variables */
+QMainWindow, QWidget#MainContent {
+    background-color: #0d141c; /* background / industrial-bg */
+    color: #dce3ef; /* on-surface */
+    font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+QLabel {
+    color: #dce3ef;
+    border: none;
+}
+
+QFrame.HeaderFrame {
+    background-color: #080f17; /* surface-container-lowest */
+    border-bottom: 1px solid #2e353f; /* surface-container-highest */
+}
+
+QFrame.TitleGlassPanel {
+    background-color: #080f17;
+    border-bottom: 1px solid rgba(0, 255, 170, 0.1);
+}
+
+QLabel#AppNameLabel {
+    color: #00ffaa; /* primary-container */
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+/* Glass Panels / Cards */
+QFrame.GlassPanel {
+    background-color: rgba(21, 28, 37, 0.8); /* surface-container-low @ 80% */
+    border: 1px solid rgba(0, 255, 170, 0.1);
+    border-radius: 8px;
+}
+
+/* Right Panel Cards */
+QFrame.EcoGuidePanel {
+    background-color: rgba(21, 28, 37, 0.8);
+    border: 1px solid rgba(0, 255, 170, 0.1);
+    border-radius: 12px;
+}
+
+/* Base Buttons */
+QPushButton {
+    outline: none;
+    border-radius: 4px;
+}
+
+QPushButton.NavButton {
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.6);
+    border: none;
+    padding: 6px 16px;
+    font-family: "Fira Code", monospace;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+QPushButton.NavButton:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+QPushButton.NavButton:checked {
+    color: #00ffaa;
+    border: 1px solid rgba(0, 255, 170, 0.4);
+    background-color: rgba(0, 255, 170, 0.05);
+}
+
+QPushButton.PrimaryAction {
+    background-color: rgba(0, 255, 170, 0.1);
+    color: #00ffaa;
+    border: 1px solid rgba(0, 255, 170, 0.5);
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: bold;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+QPushButton.PrimaryAction:hover {
+    background-color: #00ffaa;
+    color: #080f17;
+}
+
+QPushButton.SecondaryAction {
+    background-color: #192029; /* surface-container */
+    color: #dce3ef;
+    border: 1px solid #2e353f;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: bold;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+QPushButton.SecondaryAction:hover {
+    background-color: #690005; /* on-error */
+    color: #ffffff;
+}
+
+QPushButton.EcoAction {
+    background-color: #00ffaa;
+    color: #080f17;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: bold;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Category Buttons (Now QFrames for layout) */
+QFrame.CategoryButton {
+    background-color: #192029; /* surface-container */
+    border: 1px solid #2e353f;
+    border-radius: 4px;
+}
+
+QFrame.CategoryButton:hover {
+    background-color: #242a34; /* surface-container-high */
+    border: 1px solid rgba(0, 255, 170, 0.2);
+}
+
+QFrame.CategoryButton_checked {
+    background-color: rgba(24, 42, 52, 0.5);
+    border: 1px solid #00ffaa;
+    border-radius: 4px;
+}
+
+QLabel.CategoryTitle {
+    color: #dce3ef;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+QLabel.CategoryTitle_checked {
+    color: #00ffaa;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Progress Bars */
+QProgressBar {
+    background-color: #2e353f; /* surface-container-highest */
+    border: none;
+    border-radius: 3px;
+    color: transparent; 
+    max-height: 6px;
+}
+QProgressBar::chunk {
+    background-color: #00ffaa;
+    border-radius: 2px;
+}
+QProgressBar.SecondaryBar::chunk {
+    background-color: #00ffaa;
+}
+
+/* Layout Specific Texts */
+QLabel.HudTitle {
+    color: #f6fff6; /* primary */
+    font-family: "Fira Code", monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+QLabel.MetrikTitle {
+    color: #b9cbbd; /* on-surface-variant */
+    font-family: "Fira Code", monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+QLabel.MetrikValue1 {
+    color: #00ffaa;
+    font-family: "Fira Code", monospace;
+    font-size: 12px;
+    font-weight: bold;
+}
+QLabel.MetrikValue2 {
+    color: #00e3fd; /* secondary-container */
+    font-family: "Fira Code", monospace;
+    font-size: 12px;
+    font-weight: bold;
+}
+QLabel.MetrikValue3 {
+    color: #ffdad2; /* tertiary-fixed */
+    font-family: "Fira Code", monospace;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+QLabel.SystemStatusTitle {
+    color: #f6fff6;
+    font-family: "Fira Code", monospace;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+QLabel.StatusItem {
+    color: #dce3ef; 
+    font-family: "Fira Code", monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+QLabel.TargetClassText {
+    color: #ffffff;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Primary Prediction Widget (from Figma) */
+QWidget#PrimaryPrediction {
+    background-color: rgba(36, 42, 52, 0.5);
+    border: 1px solid rgba(0, 255, 170, 0.3);
+    border-radius: 8px;
+}
+
+QWidget#PrimaryPrediction:hover {
+    background-color: rgba(36, 42, 52, 0.7);
+    border-color: rgba(0, 255, 170, 0.6);
+}
+
+/* --- Menu Page Styles --- */
+
+QFrame#MenuCard {
+    background-color: rgba(46, 53, 63, 0.4);
+    border-bottom: 2px solid rgba(0, 255, 170, 0.1);
+    border-radius: 20px;
+}
+
+QFrame#MenuCard:hover {
+    background-color: rgba(46, 53, 63, 0.6);
+    border-bottom: 2px solid rgba(0, 255, 170, 0.4);
+}
+
+QLabel#MenuCardTitle {
+    color: #f6fff6;
+    font-family: "Space Grotesk";
+    font-weight: bold;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+QLabel#MenuCardDesc {
+    color: #b9cbbd;
+    font-family: "Inter";
+    font-size: 11px;
+}
+
+QLabel.MenuCardID {
+    color: #849589;
+    font-family: "Fira Code";
+    font-size: 11px;
+    opacity: 0.5;
+}
+
+QLabel#MenuCardIcon {
+    border: none;
+    background: transparent;
+}
+
+/* Holographic / Pulse Effects */
+QWidget#HolographicBg {
+    background: transparent;
+}
+
+/* --- Rehber Page Styles --- */
+
+QFrame.StepIconCard {
+    background-color: #1a212a; 
+    border: 1px solid rgba(58, 74, 64, 0.15);
+    border-radius: 48px; /* Circular */
+}
+
+QLabel.StepNumber {
+    color: rgba(0, 255, 170, 0.6);
+    font-family: "Fira Code";
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+QLabel.StepTitle {
+    color: #DCE3EF;
+    font-family: "Space Grotesk";
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 28px;
+}

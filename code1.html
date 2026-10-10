@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>SmartRecycle AI - Industrial Operation Portal</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-tint": "#00e296",
+                        "on-secondary-fixed-variant": "#004f58",
+                        "error": "#ffb4ab",
+                        "inverse-surface": "#dce3ef",
+                        "surface-bright": "#333a43",
+                        "background": "#0d141c",
+                        "surface-dim": "#0d141c",
+                        "surface-container-highest": "#2e353f",
+                        "surface-container-high": "#242a34",
+                        "error-container": "#93000a",
+                        "secondary-fixed-dim": "#00daf3",
+                        "primary-container": "#00ffaa",
+                        "on-tertiary-container": "#bc2b00",
+                        "on-primary-container": "#007149",
+                        "on-secondary": "#00363d",
+                        "on-secondary-container": "#00616d",
+                        "surface-container-low": "#151c25",
+                        "surface": "#0d141c",
+                        "on-tertiary-fixed": "#3c0700",
+                        "on-primary-fixed": "#002112",
+                        "surface-container-lowest": "#080f17",
+                        "secondary-container": "#00e3fd",
+                        "tertiary-fixed-dim": "#ffb4a2",
+                        "outline": "#849589",
+                        "on-tertiary": "#621100",
+                        "tertiary": "#fffbff",
+                        "primary": "#f6fff6",
+                        "on-tertiary-fixed-variant": "#8a1d00",
+                        "on-secondary-fixed": "#001f24",
+                        "secondary": "#bdf4ff",
+                        "on-primary": "#003822",
+                        "tertiary-fixed": "#ffdad2",
+                        "on-error-container": "#ffdad6",
+                        "inverse-primary": "#006c46",
+                        "inverse-on-surface": "#2a313a",
+                        "secondary-fixed": "#9cf0ff",
+                        "on-background": "#dce3ef",
+                        "surface-variant": "#2e353f",
+                        "primary-fixed": "#4dffb1",
+                        "on-surface": "#dce3ef",
+                        "tertiary-container": "#ffd7ce",
+                        "primary-fixed-dim": "#00e296",
+                        "on-primary-fixed-variant": "#005233",
+                        "on-surface-variant": "#b9cbbd",
+                        "outline-variant": "#3a4a40",
+                        "on-error": "#690005",
+                        "surface-container": "#192029"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "1.25rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Space Grotesk", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-color: #080f17;
+            color: #dce3ef;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .glass-module {
+            background: rgba(46, 53, 63, 0.4);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid rgba(0, 255, 170, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-module:hover {
+            background: rgba(46, 53, 63, 0.6);
+            box-shadow: 0 0 30px rgba(0, 255, 170, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .neon-icon-green {
+            background: linear-gradient(135deg, #00ffaa 0%, #00e3fd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 8px rgba(0, 255, 170, 0.5));
+        }
+
+        .neon-icon-blue {
+            background: linear-gradient(135deg, #00daf3 0%, #4dffb1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 8px rgba(0, 218, 243, 0.5));
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+        }
+
+        .animate-blink {
+            animation: blink 1.5s infinite;
+        }
+
+        .scanline {
+            background: linear-gradient(to bottom, transparent 50%, rgba(0, 255, 170, 0.05) 50%);
+            background-size: 100% 4px;
+        }
+
+        .globe-bg {
+            background-image: radial-gradient(circle at center, rgba(0, 226, 150, 0.1) 0%, transparent 70%);
+        }
+    </style>
+</head>
+
+<body class="font-body selection:bg-primary-container selection:text-on-primary-container relative">
+    <!-- Global Background Elements -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-surface-container-lowest"></div>
+        <!-- Holographic Globe Placeholder -->
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] globe-bg flex items-center justify-center">
+            <div
+                class="w-full h-full opacity-20 border-[1px] border-primary-fixed-dim rounded-full flex items-center justify-center animate-pulse">
+                <div
+                    class="w-3/4 h-3/4 border-[1px] border-secondary-fixed-dim rounded-full flex items-center justify-center">
+                    <div class="w-1/2 h-1/2 border-[0.5px] border-primary-fixed rounded-full"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Digital Particles Overlay -->
+        <div class="absolute inset-0 scanline opacity-30"></div>
+    </div>
+    <!-- Main HUD Layout -->
+    <main class="relative z-10 grid grid-cols-12 grid-rows-6 h-screen w-screen p-8 gap-6 overflow-hidden">
+        <!-- Top Left: Operator Panel -->
+        <div class="col-span-3 row-span-1 flex flex-col justify-start">
+            <div
+                class="bg-surface-container-low/40 backdrop-blur-md p-4 rounded-xl border-l-4 border-primary-fixed-dim">
+                <div class="flex items-center gap-3 mb-1">
+                    <span class="font-mono text-[10px] tracking-widest text-outline uppercase">Auth Status</span>
+                    <div class="h-1.5 w-1.5 rounded-full bg-primary-fixed-dim animate-blink shadow-[0_0_8px_#00e296]">
+                    </div>
+                </div>
+                <h1 class="font-headline text-2xl font-bold text-primary tracking-tight">OPERATÖR: ADMIN</h1>
+                <p class="font-mono text-xs text-primary-fixed-dim tracking-tighter mt-1">SİSTEM ÇEVRİMİÇİ //
+                    SYSTEM_ONLINE_v2.4.0</p>
+            </div>
+        </div>
+        <!-- Center: Horizontal Modules Row -->
+        <div class="col-span-12 row-start-2 row-span-3 flex items-center justify-center">
+            <div class="grid grid-cols-4 gap-6 w-full max-w-7xl">
+                <!-- Dashboard -->
+                <div class="glass-module p-8 rounded-xl relative group overflow-hidden cursor-pointer" onclick="window.location.href='../code.html'">
+                    <div class="absolute top-4 right-4 font-mono text-[10px] text-outline opacity-50">MOD_01</div>
+                    <div class="mb-6">
+                        <span class="material-symbols-outlined text-5xl neon-icon-green"
+                            data-icon="dashboard">dashboard</span>
+                    </div>
+                    <h3 class="font-headline text-2xl font-bold mb-2 uppercase">Dashboard</h3>
+                    <p class="text-on-surface-variant font-body text-xs leading-relaxed">Global resource overview and
+                        neural processing metrics.</p>
+                </div>
+                <!-- Analysis -->
+                <div class="glass-module p-8 rounded-xl relative group overflow-hidden">
+                    <div class="absolute top-4 right-4 font-mono text-[10px] text-outline opacity-50">MOD_02</div>
+                    <div class="mb-6">
+                        <span class="material-symbols-outlined text-5xl neon-icon-blue"
+                            data-icon="monitoring">monitoring</span>
+                    </div>
+                    <h3 class="font-headline text-2xl font-bold mb-2 uppercase">Analysis</h3>
+                    <p class="text-on-surface-variant font-body text-xs leading-relaxed">Deep-learning waste
+                        classification &amp; efficiency reports.</p>
+                </div>
+                <!-- Guide -->
+                <div class="glass-module p-8 rounded-xl relative group overflow-hidden">
+                    <div class="absolute top-4 right-4 font-mono text-[10px] text-outline opacity-50">MOD_03</div>
+                    <div class="mb-6">
+                        <span class="material-symbols-outlined text-5xl neon-icon-blue"
+                            data-icon="auto_stories">auto_stories</span>
+                    </div>
+                    <h3 class="font-headline text-2xl font-bold mb-2 uppercase">Guide</h3>
+                    <p class="text-on-surface-variant font-body text-xs leading-relaxed">Standardized operational
+                        protocols and AI-assisted safety.</p>
+                </div>
+                <!-- Settings -->
+                <div class="glass-module p-8 rounded-xl relative group overflow-hidden">
+                    <div class="absolute top-4 right-4 font-mono text-[10px] text-outline opacity-50">MOD_04</div>
+                    <div class="mb-6">
+                        <span class="material-symbols-outlined text-5xl neon-icon-green"
+                            data-icon="settings_suggest">settings_suggest</span>
+                    </div>
+                    <h3 class="font-headline text-2xl font-bold mb-2 uppercase">Settings</h3>
+                    <p class="text-on-surface-variant font-body text-xs leading-relaxed">Core system calibration and
+                        neural link synchronization.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Bottom Left: Status Circular Graphs -->
+        <div class="col-span-6 row-start-5 row-span-2 flex items-end gap-6 pb-4 relative">
+            <!-- CPU -->
+            <div class="flex flex-col items-center gap-3 relative">
+                <div class="absolute -left-4 -bottom-3 w-8 h-8 border-b-2 border-l-2 border-primary-fixed-dim/80 pointer-events-none"></div>
+                <div class="relative w-24 h-24 flex items-center justify-center">
+                    <svg class="w-full h-full transform -rotate-90" viewBox="0 0 96 96">
+                        <circle class="text-surface-container-highest" cx="48" cy="48" fill="transparent" r="40"
+                            stroke="currentColor" stroke-width="6"></circle>
+                        <circle class="text-primary-fixed-dim" cx="48" cy="48" fill="transparent" r="40"
+                            stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="62.8" stroke-width="6">
+                        </circle>
+                    </svg>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center">
+                        <span class="font-mono text-2xl font-bold">75%</span>
+                    </div>
+                </div>
+                <span class="font-mono text-[10px] uppercase tracking-widest text-outline leading-[15px]">CPU_LOAD</span>
+            </div>
+            <!-- Latency -->
+            <div class="flex flex-col items-center gap-3">
+                <div class="relative w-20 h-20 flex items-center justify-center">
+                    <svg class="w-full h-full transform -rotate-90" viewBox="0 0 80 80">
+                        <circle class="text-surface-container-highest" cx="40" cy="40" fill="transparent" r="34"
+                            stroke="currentColor" stroke-width="6"></circle>
+                        <circle class="text-secondary-fixed-dim" cx="40" cy="40" fill="transparent" r="34"
+                            stroke="currentColor" stroke-dasharray="213.6" stroke-dashoffset="179.5" stroke-width="6">
+                        </circle>
+                    </svg>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center">
+                        <span class="font-mono text-2xl font-bold">12ms</span>
+                    </div>
+                </div>
+                <span class="font-mono text-[10px] uppercase tracking-widest text-outline leading-[15px]">LATENCY</span>
+            </div>
+            <!-- Storage -->
+            <div class="flex flex-col items-center gap-3">
+                <div class="relative w-20 h-20 flex items-center justify-center">
+                    <svg class="w-full h-full transform -rotate-90" viewBox="0 0 80 80">
+                        <circle class="text-surface-container-highest" cx="40" cy="40" fill="transparent" r="34"
+                            stroke="currentColor" stroke-width="6"></circle>
+                        <circle class="text-primary-fixed-dim" cx="40" cy="40" fill="transparent" r="34"
+                            stroke="currentColor" stroke-dasharray="213.6" stroke-dashoffset="85.4" stroke-width="6">
+                        </circle>
+                    </svg>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center">
+                        <span class="font-mono text-2xl font-bold">60%</span>
+                    </div>
+                </div>
+                <span class="font-mono text-[10px] uppercase tracking-widest text-outline leading-[15px]">STORAGE</span>
+            </div>
+        </div>
+        <!-- Aesthetic HUD Corner Borders -->
+        <div class="fixed top-4 left-4 w-12 h-12 border-t-2 border-l-2 border-primary-fixed-dim/30 pointer-events-none">
+        </div>
+        <div
+            class="fixed top-4 right-4 w-12 h-12 border-t-2 border-r-2 border-primary-fixed-dim/30 pointer-events-none">
+        </div>
+        <div
+            class="fixed bottom-4 left-4 w-12 h-12 border-b-2 border-l-2 border-primary-fixed-dim/30 pointer-events-none">
+        </div>
+        <div
+            class="fixed bottom-4 right-4 w-12 h-12 border-b-2 border-r-2 border-primary-fixed-dim/30 pointer-events-none">
+        </div>
+    </main>
+</body>
+
+</html>
