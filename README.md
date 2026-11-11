@@ -100,6 +100,10 @@ smart-waste-sorting-system/
 
 If the Arduino is connected to a different port, edit `SERIAL_PORT` in `logic/camera_engine.py`. The default camera index is `0`; change `camera_index` in `core/main_window.py` if you need a different camera.
 
+## Demo Video
+
+[![Watch the SmartRecycle AI demo](https://img.youtube.com/vi/URgLyhPZ7Ec/hqdefault.jpg)](https://www.youtube.com/shorts/URgLyhPZ7Ec)
+
 ## Screenshots
 
 ### Main Menu
