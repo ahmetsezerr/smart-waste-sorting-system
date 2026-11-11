@@ -102,7 +102,7 @@ If the Arduino is connected to a different port, edit `SERIAL_PORT` in `logic/ca
 
 ## Demo Video
 
-[![Watch the SmartRecycle AI demo](https://img.youtube.com/vi/URgLyhPZ7Ec/hqdefault.jpg)](https://www.youtube.com/shorts/URgLyhPZ7Ec)
+▶️ **[Watch the SmartRecycle AI Demo on YouTube](https://www.youtube.com/shorts/URgLyhPZ7Ec)**
 
 ## Screenshots
 
